@@ -5,7 +5,26 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build IPA
+      
+      - name: Install XcodeGen
+        run: brew install xcodegen
+        
+      - name: Generate AshteMobile.xcodeproj
+        run: xcodegen generate
+        
+      - name: Build App
         run: |
-          xcodebuild archive -project AshteMobile.xcodeproj -scheme AshteMobile -archivePath build/AshteMobile.xcarchive
-          xcodebuild -exportArchive -archivePath build/AshteMobile.xcarchive -exportPath build -exportOptionsPlist exportOptions.plist
+          xcodebuild build -project AshteMobile.xcodeproj -scheme AshteMobile -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO -sdk iphoneos
+          
+      - name: Create IPA (Unsigned)
+        run: |
+          mkdir -p build/Payload
+          mv build/Release-iphoneos/AshteMobile.app build/Payload/
+          cd build
+          zip -r AshteMobile.ipa Payload
+          
+      - name: Upload IPA
+        uses: actions/upload-artifact@v3
+        with:
+          name: AshteMobile-IPA
+          path: build/AshteMobile.ipa
