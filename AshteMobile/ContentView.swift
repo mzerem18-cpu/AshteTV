@@ -2,7 +2,6 @@ import SwiftUI
 import AVKit
 import AVFoundation
 
-// 1. مۆدێلی کەناڵ
 struct Channel: Codable, Identifiable {
     var id = UUID()
     let name: String
@@ -15,7 +14,6 @@ struct Channel: Codable, Identifiable {
     }
 }
 
-// 2. دیزاینی سەرەکی ئەپەکە
 struct ContentView: View {
     @State private var channels: [Channel] = []
     @State private var selectedChannel: Channel?
@@ -37,7 +35,7 @@ struct ContentView: View {
         }
     }
 
-    let adaptiveColumns: [GridItem] = [
+    let adaptiveColumns = [
         GridItem(.adaptive(minimum: 100, maximum: 140), spacing: 15)
     ]
 
@@ -48,17 +46,32 @@ struct ContentView: View {
                 
                 VStack(alignment: .leading, spacing: 15) {
                     
-                    HStack {
-                        Image(systemName: "magnifyingglass").foregroundColor(.gray)
-                        TextField("Search for channels...", text: $searchText)
+                    // Header
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text("TODAY")
+                            .font(.caption)
+                            .fontWeight(.bold)
+                            .foregroundColor(.gray)
+                        Text("Ashte TV")
+                            .font(.largeTitle)
+                            .fontWeight(.black)
                             .foregroundColor(.white)
                     }
-                    .padding(12)
-                    .background(Color(red: 0.13, green: 0.13, blue: 0.13))
-                    .cornerRadius(12)
                     .padding(.horizontal)
                     .padding(.top, 10)
 
+                    // Search Bar
+                    HStack {
+                        Image(systemName: "magnifyingglass").foregroundColor(.gray)
+                        TextField("Search channels...", text: $searchText)
+                            .foregroundColor(.white)
+                    }
+                    .padding(12)
+                    .background(Color(red: 0.15, green: 0.15, blue: 0.15))
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+
+                    // Categories
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 10) {
                             ForEach(categories, id: \.self) { category in
@@ -78,6 +91,7 @@ struct ContentView: View {
                         .padding(.horizontal)
                     }
 
+                    // Channels Grid
                     ScrollView {
                         LazyVGrid(columns: adaptiveColumns, spacing: 15) {
                             ForEach(filteredChannels) { channel in
@@ -116,7 +130,6 @@ struct ContentView: View {
     }
 }
 
-// 3. دیزاینی کاردی کەناڵەکان
 struct ChannelCardView: View {
     let channel: Channel
     
@@ -125,7 +138,7 @@ struct ChannelCardView: View {
             AsyncImage(url: URL(string: channel.logo)) { image in
                 image.resizable().aspectRatio(contentMode: .fit)
             } placeholder: {
-                ProgressView()
+                ProgressView().tint(.white)
             }
             .frame(width: 55, height: 55)
             .padding(8)
@@ -144,12 +157,11 @@ struct ChannelCardView: View {
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 15)
-        .background(Color(red: 0.13, green: 0.13, blue: 0.13))
+        .background(Color(red: 0.15, green: 0.15, blue: 0.15))
         .cornerRadius(20)
     }
 }
 
-// 4. پلەیەری ڤیدیۆ
 struct PlayerContainerView: View {
     let url: String
     let name: String
@@ -160,8 +172,9 @@ struct PlayerContainerView: View {
             HStack {
                 Text(name).font(.headline).foregroundColor(.white)
                 Spacer()
-                Button("Done") { presentationMode.wrappedValue.dismiss() }
-                    .foregroundColor(.red).fontWeight(.bold)
+                Button("Close") { presentationMode.wrappedValue.dismiss() }
+                    .foregroundColor(.red)
+                    .fontWeight(.bold)
             }
             .padding()
             .background(Color.black)
@@ -169,7 +182,7 @@ struct PlayerContainerView: View {
             if let videoURL = URL(string: url) {
                 VideoPlayer(player: AVPlayer(url: videoURL))
                     .onAppear {
-                        try? AVAudioSession.sharedInstance().setCategory(.playback)
+                        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .moviePlayback)
                     }
             }
         }
