@@ -1,0 +1,110 @@
+[
+  {
+    "name": "AVA Media",
+    "url": "http://stap2025.me:8080/live/nsbp46qijx/ukbyu5668f/1162644.m3u8",
+    "logo": "https://i.postimg.cc/1myj1tH7/MMNACT.png",
+    "group": "News"
+  },
+  {
+    "name": "Rudaw HD",
+    "url": "https://live.rudaw.net/hls/rudaw-tv/master.m3u8",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn5GWJGa6oHJVSumqBBhIaNeNcgX6wp7ZtkFTfwUd8mQ&s=10",
+    "group": "News"
+  },
+  {
+    "name": "K24 HD",
+    "url": "https://d1x82nydcxndze.cloudfront.net/live/index.m3u8",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ54KZVUIESBm87JuL4Kh7He5Gyq7bpxdgseb7xBSFCNg&s",
+    "group": "News"
+  },
+  {
+    "name": "Channel 8",
+    "url": "https://live.channel8.com/Channel8-Kurdish/tracks-v4a1/mono.m3u8",
+    "logo": "https://i.postimg.cc/1myj1tH7/MMNACT.png",
+    "group": "News"
+  },
+  {
+    "name": "NRT HD",
+    "url": "https://hlspackager.akamaized.net/live/DB/NRT_HD/HLS/NRT_HD-avc1_2500000=10002,mp4a_128000=20000.m3u8",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2Pvt6sCdWqS5US76U_27WOXP8bk7vB0-Oyu4_0KaFhA&s=10",
+    "group": "News"
+  },
+  {
+    "name": "beIN 1",
+    "url": "http://stap2025.me:8080/live/nsbp46qijx/ukbyu5668f/1.m3u8",
+    "logo": "https://vignette.wikia.nocookie.net/logopedia/images/9/94/BE_IN_SPORT_1_HD_2013.jpg",
+    "group": "Sports"
+  },
+  {
+    "name": "Abu Dhabi Sports 1",
+    "url": "https://vo-live.cdb.cdn.orange.com/Content/Channel/AbuDhabiSportsChannel1/HLS/index.m3u8",
+    "logo": "https://i.imgur.com/6BVWk8z.png",
+    "group": "Sports"
+  },
+  {
+    "name": "Abu Dhabi Sports 2",
+    "url": "https://vo-live.cdb.cdn.orange.com/Content/Channel/AbuDhabiSportsChannel2/HLS/index.m3u8",
+    "logo": "https://i.imgur.com/4rVm3oZ.png",
+    "group": "Sports"
+  },
+  {
+    "name": "beIN SPORTS XTRA",
+    "url": "http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/5df975e2b27cf5000921c102/master.m3u8",
+    "logo": "https://i.imgur.com/uJosqHh.png",
+    "group": "Sports"
+  },
+  {
+    "name": "beIN SPORTS En Espanol",
+    "url": "https://lnc-bein-espanol.tubi.video/playlist.m3u8",
+    "logo": "https://i.imgur.com/V562tpO.png",
+    "group": "Sports"
+  },
+  {
+    "name": "TRT Spor HD",
+    "url": "https://tv-trtspor1.medya.trt.com.tr/master.m3u8",
+    "logo": "https://i.imgur.com/6tv0zxh.png",
+    "group": "Sports"
+  },
+  {
+    "name": "Sony Sports Ten 1",
+    "url": "https://dai.google.com/linear/hls/event/6WhVNGKTRXyu588zZv1Lkg/master.m3u8",
+    "logo": "https://i.imgur.com/hWo7Ba4.png",
+    "group": "Sports"
+  },
+  {
+    "name": "Sony Sports Ten 2",
+    "url": "https://dai.google.com/linear/hls/event/V9h-iyOxRiGp41ppQScDSQ/master.m3u8",
+    "logo": "https://i.imgur.com/W96KVqu.png",
+    "group": "Sports"
+  },
+  {
+    "name": "UFC Channel",
+    "url": "https://linear-893.frequency.stream/dist/xumo/893/hls/master/playlist.m3u8",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkcFL0mWry_f4Pe69U2d_9UqXxgzcKnLhU_Dkuc0a3Ww&s=10",
+    "group": "Sports"
+  },
+  {
+    "name": "WWE Network",
+    "url": "https://shls-live-event2-prod-dub.shahid.net/out/v1/0456ede1a39145d98b3d8c8062ddc998/index.m3u8",
+    "logo": "https://i.imgur.com/agc0IZF.png",
+    "group": "Sports"
+  },
+  {
+    "name": "Red TV",
+    "url": "http://avrstream.com:1935/live/REDTV/playlist.m3u8",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5_NDROEufefimTCh6J-EckxBGTH5Tn6wqQ-pReONT0g&s=10",
+    "group": "Movies"
+  },
+  {
+    "name": "MMN Movies",
+    "url": "http://mmn.mypsx.net:1935/live/mmnhdmovies/playlist.m3u8",
+    "logo": "https://i.postimg.cc/633CQd70/MMNM.png",
+    "group": "Movies"
+  },
+  {
+    "name": "MMN Action",
+    "url": "http://mmn.mypsx.net:1935/live/mmnhdaction/playlist.m3u8",
+    "logo": "https://i.postimg.cc/1myj1tH7/MMNACT.png",
+    "group": "Movies"
+  }
+]
