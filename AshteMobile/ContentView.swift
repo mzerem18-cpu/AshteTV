@@ -1,5 +1,6 @@
 import SwiftUI
 import AVKit
+import AVFoundation
 
 // 1. مۆدێلی کەناڵ
 struct Channel: Codable, Identifiable {
@@ -24,7 +25,7 @@ struct ContentView: View {
     var categories: [String] {
         var groups = ["All"]
         let uniqueGroups = Set(channels.map { $0.group })
-        groups.append(contentsOf: uniqueGroups.sorted())
+        groups.append(contentsOf: Array(uniqueGroups).sorted())
         return groups
     }
 
@@ -36,8 +37,7 @@ struct ContentView: View {
         }
     }
 
-    // 💡 ئەمە کۆدە زیرەکەکەیە بۆ خۆگونجاندن لەگەڵ هەموو شاشەیەک (ئایفۆن و ئایپاد)
-    let adaptiveColumns = [
+    let adaptiveColumns: [GridItem] = [
         GridItem(.adaptive(minimum: 100, maximum: 140), spacing: 15)
     ]
 
@@ -48,7 +48,6 @@ struct ContentView: View {
                 
                 VStack(alignment: .leading, spacing: 15) {
                     
-                    // --- سێرچ بار ---
                     HStack {
                         Image(systemName: "magnifyingglass").foregroundColor(.gray)
                         TextField("Search for channels...", text: $searchText)
@@ -60,7 +59,6 @@ struct ContentView: View {
                     .padding(.horizontal)
                     .padding(.top, 10)
 
-                    // --- دوگمەکانی گرووپ ---
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 10) {
                             ForEach(categories, id: \.self) { category in
@@ -80,7 +78,6 @@ struct ContentView: View {
                         .padding(.horizontal)
                     }
 
-                    // --- لیستی کەناڵەکان بە سیستەمی Adaptive ---
                     ScrollView {
                         LazyVGrid(columns: adaptiveColumns, spacing: 15) {
                             ForEach(filteredChannels) { channel in
@@ -101,8 +98,7 @@ struct ContentView: View {
                 PlayerContainerView(url: channel.url, name: channel.name)
             }
         }
-        // 💡 ئەم کۆدە ڕێگری دەکات لەوەی ئایپاد شاشەکە بکات بە دوو بەشەوە
-        .navigationViewStyle(.stack)
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear(perform: loadData)
     }
 
