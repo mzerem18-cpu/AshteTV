@@ -1,0 +1,11 @@
+name: Build AshteMobile IPA
+on: [push]
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build IPA
+        run: |
+          xcodebuild archive -project AshteMobile.xcodeproj -scheme AshteMobile -archivePath build/AshteMobile.xcarchive
+          xcodebuild -exportArchive -archivePath build/AshteMobile.xcarchive -exportPath build -exportOptionsPlist exportOptions.plist
