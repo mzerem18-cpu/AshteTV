@@ -1,0 +1,12 @@
+name: AshteMobile
+options:
+  bundleIdPrefix: com.ashtemobile
+targets:
+  AshteMobile:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources:
+      - AshteMobile
+    info:
+      path: AshteMobile/Info.plist
